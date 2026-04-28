@@ -1,0 +1,497 @@
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('fonts/icomoon.ttf?o55ots') format('truetype'),
+    url('fonts/icomoon.woff?o55ots') format('woff'),
+    url('fonts/icomoon.svg?o55ots#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-send-email:before {
+  content: "\e996";
+}
+.icon-world1:before {
+  content: "\e997";
+}
+.icon-right-arrow1:before {
+  content: "\e998";
+}
+.icon-instagram1:before {
+  content: "\e999";
+}
+.icon-facebook1:before {
+  content: "\e99a";
+}
+.icon-tv:before {
+  content: "\e994";
+}
+.icon-verify:before {
+  content: "\e995";
+}
+.icon-shot-off:before {
+  content: "\e992";
+}
+.icon-shot-on:before {
+  content: "\e993";
+}
+.icon-foul:before {
+  content: "\e991";
+}
+.icon-offside:before {
+  content: "\e990";
+}
+.icon-throw-in:before {
+  content: "\e98f";
+}
+.icon-chair:before {
+  content: "\e98e";
+}
+.icon-card:before {
+  content: "\e98d";
+}
+.icon-surrender:before {
+  content: "\e98c";
+}
+.icon-filter-remove-icon:before {
+  content: "\e98b";
+}
+.icon-auto-scroll-down:before {
+  content: "\e98a";
+}
+.icon-star:before {
+  content: "\e988";
+}
+.icon-star-filled:before {
+  content: "\e989";
+}
+.icon-shuttle:before {
+  content: "\e987";
+}
+.icon-Menu:before {
+  content: "\e986";
+}
+.icon-var:before {
+  content: "\e985";
+}
+.icon-map:before {
+  content: "\e984";
+}
+.icon-link-to:before {
+  content: "\e983";
+}
+.icon-sport-timeout:before {
+  content: "\e982";
+}
+.icon-icon-unlock:before {
+  content: "\e980";
+}
+.icon-icon-lock:before {
+  content: "\e981";
+}
+.icon-cs-bomb:before {
+  content: "\e97f";
+}
+.icon-bomb_exploded:before {
+  content: "\e97d";
+}
+.icon-bomb_defused:before {
+  content: "\e97e";
+}
+.icon-player-form-bottom:before {
+  content: "\e97b";
+}
+.icon-player-form-top:before {
+  content: "\e97c";
+}
+.icon-map-icon:before {
+  content: "\e979";
+}
+.icon-ak47-icon:before {
+  content: "\e97a";
+}
+.icon-partner:before {
+  content: "\e977";
+}
+.icon-users:before {
+  content: "\e978";
+}
+.icon-approval:before {
+  content: "\e976";
+}
+.icon-play:before {
+  content: "\e974";
+}
+.icon-stop:before {
+  content: "\e975";
+}
+.icon-show:before {
+  content: "\e965";
+}
+.icon-hide:before {
+  content: "\e966";
+}
+.icon-information:before {
+  content: "\e971";
+}
+.icon-football-booking:before {
+  content: "\e972";
+}
+.icon-football-corner:before {
+  content: "\e973";
+}
+.icon-football-penalty:before {
+  content: "\e970";
+}
+.icon-settings:before {
+  content: "\e96d";
+}
+.icon-event-list:before {
+  content: "\e96e";
+}
+.icon-cancel-event:before {
+  content: "\e96f";
+}
+.icon-swap-vert:before {
+  content: "\e964";
+}
+.icon-pin:before {
+  content: "\e967";
+}
+.icon-company:before {
+  content: "\e963";
+}
+.icon-email:before {
+  content: "\e95e";
+}
+.icon-lock:before {
+  content: "\e95f";
+}
+.icon-mobile:before {
+  content: "\e960";
+}
+.icon-position:before {
+  content: "\e961";
+}
+.icon-user1:before {
+  content: "\e962";
+}
+.icon-schedule-button:before {
+  content: "\e95d";
+}
+.icon-check-box-checked:before {
+  content: "\e834";
+}
+.icon-check-box-unchecked:before {
+  content: "\e835";
+}
+.icon-cloud-upload:before {
+  content: "\e95c";
+}
+.icon-filter:before {
+  content: "\e92d";
+}
+.icon-forwards:before {
+  content: "\e95a";
+}
+.icon-backwards:before {
+  content: "\e95b";
+}
+.icon-left-outline:before {
+  content: "\e955";
+}
+.icon-right-outline:before {
+  content: "\e959";
+}
+.icon-copy:before {
+  content: "\e954";
+}
+.icon-code-hide:before {
+  content: "\e956";
+}
+.icon-code:before {
+  content: "\e957";
+}
+.icon-codesandbox:before {
+  content: "\e958";
+}
+.icon-trash:before {
+  content: "\e941";
+}
+.icon-upload-reset:before {
+  content: "\e952";
+}
+.icon-view:before {
+  content: "\e953";
+}
+.icon-file-type:before {
+  content: "\e94f";
+}
+.icon-upload:before {
+  content: "\e950";
+}
+.icon-attachment:before {
+  content: "\e951";
+}
+.icon-validated:before {
+  content: "\e94d";
+}
+.icon-error-info:before {
+  content: "\e94e";
+}
+.icon-status-stop:before {
+  content: "\e949";
+}
+.icon-status-circle-outline:before {
+  content: "\e94a";
+}
+.icon-status-circle:before {
+  content: "\e94b";
+}
+.icon-status-play:before {
+  content: "\e94c";
+}
+.icon-loader:before {
+  content: "\e948";
+}
+.icon-dislike:before {
+  content: "\e944";
+}
+.icon-plus:before {
+  content: "\e945";
+}
+.icon-minus:before {
+  content: "\e946";
+}
+.icon-like:before {
+  content: "\e947";
+}
+.icon-input-number-down:before {
+  content: "\e938";
+}
+.icon-input-number-up:before {
+  content: "\e943";
+}
+.icon-user:before {
+  content: "\e937";
+}
+.icon-tag-remove:before {
+  content: "\e942";
+}
+.icon-superbet:before {
+  content: "\e93a";
+}
+.icon-withdraw:before {
+  content: "\e93b";
+}
+.icon-new-user:before {
+  content: "\e93c";
+}
+.icon-notification:before {
+  content: "\e93d";
+}
+.icon-deposit:before {
+  content: "\e93e";
+}
+.icon-notification-outline:before {
+  content: "\e93f";
+}
+.icon-message:before {
+  content: "\e940";
+}
+.icon-radio:before {
+  content: "\e912";
+}
+.icon-bell:before {
+  content: "\e939";
+}
+.icon-success-fill:before {
+  content: "\e931";
+}
+.icon-error-fill:before {
+  content: "\e932";
+}
+.icon-info-fill:before {
+  content: "\e933";
+}
+.icon-success:before {
+  content: "\e934";
+}
+.icon-error:before {
+  content: "\e935";
+}
+.icon-info:before {
+  content: "\e936";
+}
+.icon-apps:before {
+  content: "\e900";
+}
+.icon-arrow-back:before {
+  content: "\e901";
+}
+.icon-arrow-down-nav:before {
+  content: "\e902";
+}
+.icon-arrow-down:before {
+  content: "\e903";
+}
+.icon-arrow-downward:before {
+  content: "\e904";
+}
+.icon-arrow-forward:before {
+  content: "\e905";
+}
+.icon-arrow-left-nav:before {
+  content: "\e906";
+}
+.icon-arrow-left:before {
+  content: "\e907";
+}
+.icon-arrow-next:before {
+  content: "\e908";
+}
+.icon-arrow-previous:before {
+  content: "\e909";
+}
+.icon-arrow-right-nav:before {
+  content: "\e90a";
+}
+.icon-arrow-right:before {
+  content: "\e90b";
+}
+.icon-arrow-up-nav:before {
+  content: "\e90c";
+}
+.icon-arrow-up:before {
+  content: "\e90d";
+}
+.icon-arrow-upward:before {
+  content: "\e90e";
+}
+.icon-bs-management:before {
+  content: "\e90f";
+}
+.icon-calendar:before {
+  content: "\e910";
+}
+.icon-checkbox-checked:before {
+  content: "\e911";
+}
+.icon-checkbox-indeterminate:before {
+  content: "\e913";
+}
+.icon-clear:before {
+  content: "\e914";
+}
+.icon-clock:before {
+  content: "\e915";
+}
+.icon-close:before {
+  content: "\e916";
+}
+.icon-dashboard:before {
+  content: "\e917";
+}
+.icon-dot-empty:before {
+  content: "\e918";
+}
+.icon-dot:before {
+  content: "\e919";
+}
+.icon-drag:before {
+  content: "\e91a";
+}
+.icon-edit:before {
+  content: "\e91b";
+}
+.icon-financials:before {
+  content: "\e91c";
+}
+.icon-help:before {
+  content: "\e91d";
+}
+.icon-menu-collapsed:before {
+  content: "\e91e";
+}
+.icon-menu-expanded:before {
+  content: "\e91f";
+}
+.icon-more-horizontal:before {
+  content: "\e920";
+}
+.icon-more-vertical:before {
+  content: "\e921";
+}
+.icon-odds-feed:before {
+  content: "\e922";
+}
+.icon-players:before {
+  content: "\e923";
+}
+.icon-refresh:before {
+  content: "\e924";
+}
+.icon-reports:before {
+  content: "\e925";
+}
+.icon-reset:before {
+  content: "\e926";
+}
+.icon-sb-management:before {
+  content: "\e927";
+}
+.icon-search:before {
+  content: "\e928";
+}
+.icon-small-dot-empty:before {
+  content: "\e929";
+}
+.icon-small-dot:before {
+  content: "\e92a";
+}
+.icon-sorting-down:before {
+  content: "\e92b";
+}
+.icon-sorting-up:before {
+  content: "\e92c";
+}
+.icon-stream:before {
+  content: "\e92e";
+}
+.icon-tools:before {
+  content: "\e92f";
+}
+.icon-user-management:before {
+  content: "\e930";
+}
+.icon-snooker-ball:before {
+  content: "\e96c";
+}
+.icon-save:before {
+  content: "\e96a";
+}
+.icon-reset1:before {
+  content: "\e96b";
+}
+.icon-turn-off:before {
+  content: "\e968";
+}
+.icon-share:before {
+  content: "\e969";
+}
