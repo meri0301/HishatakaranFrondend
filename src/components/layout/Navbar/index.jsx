@@ -1,8 +1,9 @@
-import { Globe, Search } from 'lucide-react';
-import { useState } from 'react';
+import { memo, useState } from 'react';
+import { Search } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import Button from '../../ui/Button';
+import LanguageDropdown from '../../ui/LanguageDropdown';
 import logo from '../../../assets/images/logo.svg';
 import { ROUTE_PATHS } from '../../../routes/routePaths';
 import styles from './index.module.scss';
@@ -16,7 +17,7 @@ const navItems = [
   { label: 'Contact Us', to: ROUTE_PATHS.contact },
 ];
 
-function Navbar() {
+const Navbar = memo(() => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
 
@@ -64,15 +65,14 @@ function Navbar() {
           <Button to={ROUTE_PATHS.donate} variant="outlineLight" size="sm" className={styles.donateButton}>
             Donate
           </Button>
-          <button type="button" className={styles.language}>
-            <Globe size={14} />
-            EN
-          </button>
+          <LanguageDropdown/>
         </div>
       </div>
     </header>
   );
-}
+});
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;
 

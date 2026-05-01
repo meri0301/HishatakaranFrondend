@@ -72,40 +72,6 @@
   gap: 12px;
 }
 
-.statsBar {
-  width: min(var(--container-width), calc(100% - 40px));
-  margin-inline: auto;
-  position: absolute;
-  bottom: -42px;
-  left: 0;
-  right: 0;
-  border-radius: var(--radius-md);
-  background: #dfdccf;
-  padding: 16px 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  box-shadow: 0 12px 30px rgba(22, 16, 13, 0.2);
-}
-
-.statItem {
-  text-align: center;
-}
-
-.statsCount {
-  display: block;
-  font-weight: 700;
-  color: var(--color-black);
-  font-size: clamp(1.8rem, 3.6vw, 3rem);
-  font-family: var(--font-sans);
-  line-height: 1;
-}
-
-.statsLabel {
-  font-size: 0.82rem;
-  color: var(--color-text-muted);
-}
-
 .sectionWrap {
   display: flex;
   flex-direction: column;
@@ -178,7 +144,8 @@
   border-radius: var(--radius-lg);
   background: var(--color-section-soft);
   padding: clamp(24px, 4vw, 40px);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
 
   p {
@@ -187,13 +154,21 @@
   }
 }
 
+.seeMoreBtn {
+  width: 100px;
+}
+
+.aboutCardBackground {
+  width: 100%;
+}
+
 .watermark {
   position: absolute;
-  right: 30px;
-  bottom: 16px;
-  opacity: 0.12;
+  right: 0;
+  bottom: 0;
   display: flex;
-  gap: 10px;
+  height: 100%;
+  width: 70%;
 }
 
 .programBanner img {
@@ -234,6 +209,25 @@
   color: var(--color-white);
   min-height: 250px;
   padding: 28px clamp(220px, 36vw, 420px) 28px 30px;
+
+  /* Reveal animation — initial hidden state */
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  /* Respect reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+}
+
+/* Applied by IntersectionObserver when the card enters the viewport */
+.donationVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .donationContent {
@@ -263,10 +257,6 @@
 }
 
 @media (max-width: 900px) {
-  .statsBar {
-    grid-template-columns: repeat(2, 1fr);
-    bottom: -70px;
-  }
 
   .homePage {
     gap: 98px;
@@ -305,10 +295,6 @@
     min-height: 620px;
   }
 
-  .statsBar {
-    position: static;
-    margin-top: -40px;
-  }
 
   .heroContent {
     padding-bottom: 40px;
@@ -318,9 +304,9 @@
     gap: 56px;
   }
 
-  .watermark {
-    display: none;
-  }
+  //.watermark {
+  //  display: none;
+  //}
 
   .librarySliderWrap {
     display: block;

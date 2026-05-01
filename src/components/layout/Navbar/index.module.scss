@@ -63,13 +63,14 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  width: 30%;
 }
 
 .searchForm {
   min-width: 170px;
   max-width: 220px;
   border: 1px solid rgba(244, 239, 230, 0.7);
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   min-height: 34px;
   padding: 0 10px;
   display: inline-flex;

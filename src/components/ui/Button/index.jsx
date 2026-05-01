@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './index.module.scss';
 
-function Button({
+const Button = memo(({
   children,
   variant = 'primary',
   size = 'md',
@@ -12,7 +13,7 @@ function Button({
   type = 'button',
   fullWidth = false,
   ...rest
-}) {
+}) => {
   const classes = [styles.button, styles[variant], styles[size], fullWidth ? styles.fullWidth : '', className]
     .filter(Boolean)
     .join(' ');
@@ -38,7 +39,8 @@ function Button({
       {children}
     </button>
   );
-}
+});
+
+Button.displayName = 'Button';
 
 export default Button;
-
