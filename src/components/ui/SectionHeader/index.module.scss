@@ -1,0 +1,38 @@
+.sectionHeader {
+  display: grid;
+  gap: 8px;
+
+  h2 {
+    font-size: clamp(2rem, 3.3vw, 2.9rem);
+  }
+
+  p {
+    max-width: 62ch;
+    color: var(--color-text-muted);
+  }
+}
+
+.eyebrow {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+  justify-items: center;
+}
+
+.light {
+  color: var(--color-white);
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+

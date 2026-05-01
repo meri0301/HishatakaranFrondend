@@ -1,37 +1,39 @@
-# Hishatakaran React App
+# Hishatakaran Landing Page
 
-A minimal React app powered by Vite.
+React + Vite implementation of the main landing page for **"Preserving The Memory Of Artsakh's Tangible Heritage"**.
 
-## Getting started
+## Tech Stack
 
-Install dependencies:
+- React 18
+- react-router-dom (multi-page routing setup)
+- SCSS Modules (component-level styles)
+- lucide-react (placeholder iconography)
+
+## Run Locally
 
 ```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-Create a production build:
+## Build
 
 ```bash
 npm run build
-```
-
-Preview the production build locally:
-
-```bash
 npm run preview
 ```
 
-## Project structure
+## Structure
 
-- `index.html` – Vite entry HTML
-- `src/main.jsx` – React bootstrap
-- `src/App.jsx` – main app component
-- `src/index.css` – app styles
+- `src/components/layout` - reusable layout components (`Navbar`, `Footer`, `PageLayout`)
+- `src/components/ui` - reusable UI primitives (`Button`, `SectionHeader`, `LibraryCard`)
+- `src/pages/HomePage` - landing page sections
+- `src/pages/PlaceholderPage` - placeholder route pages for upcoming sections
+- `src/routes` - route config and route paths
+- `src/index.css` - global tokens and typography setup
+
+## Notes
+
+- Placeholder images use `https://placehold.co/` so final assets can be swapped directly.
+- Navigation routes are prepared for: Cultural Heritages, Locations, Programs, Library, Gallery, Contact, Donate.
 

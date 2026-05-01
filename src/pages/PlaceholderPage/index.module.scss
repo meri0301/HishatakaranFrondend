@@ -1,0 +1,12 @@
+.placeholder {
+  padding: 64px 0;
+}
+
+.container {
+  width: min(var(--container-width), calc(100% - 40px));
+  margin-inline: auto;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--color-section-soft);
+}
+
