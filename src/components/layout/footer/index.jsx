@@ -46,13 +46,14 @@ const Footer = memo(() => (
                             <input type="email" placeholder="Email" aria-label="Email"/>
                             <button type="button">Send</button>
                         </div>
+
                         <div className={styles.socials}>
-                            <a href="https://www.instagram.com/hishatakaran_ngo?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+                            <a href="https://www.facebook.com/profile.php?id=61551728661840"
                                target="_blank"
                                rel="noopener noreferrer" aria-label="Facebook">
                                 <Facebook size={18}/>
                             </a>
-                            <a href="https://www.facebook.com/profile.php?id=61551728661840" target="_blank"
+                            <a href="https://www.instagram.com/hishatakaran_ngo?igshid=OGQ5ZDc2ODk2ZA%3D%3D" target="_blank"
                                rel="noopener noreferrer" aria-label="Instagram">
                                 <Instagram size={18}/>
                             </a>
