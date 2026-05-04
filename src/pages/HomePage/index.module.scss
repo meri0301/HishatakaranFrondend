@@ -10,7 +10,6 @@
 
 .body {
   width: min(var(--container-width), 100% - 40px);
-  //margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 70px;
@@ -210,21 +209,18 @@
   min-height: 250px;
   padding: 28px clamp(220px, 36vw, 420px) 28px 30px;
 
-  /* Reveal animation — initial hidden state */
   opacity: 0;
   transform: translateY(50px);
   transition:
     opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1),
     transform 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
 
-  /* Respect reduced-motion preference */
   @media (prefers-reduced-motion: reduce) {
     transition: opacity 0.3s ease;
     transform: none;
   }
 }
 
-/* Applied by IntersectionObserver when the card enters the viewport */
 .donationVisible {
   opacity: 1;
   transform: translateY(0);
@@ -242,18 +238,6 @@
   position: absolute;
   width: clamp(220px, 38vw, 450px);
   object-fit: cover;
-}
-
-.mapFrame {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 3px solid #d2cdbc;
-
-  iframe {
-    width: 100%;
-    height: 360px;
-    border: 0;
-  }
 }
 
 @media (max-width: 900px) {
@@ -303,10 +287,6 @@
   .homePage {
     gap: 56px;
   }
-
-  //.watermark {
-  //  display: none;
-  //}
 
   .librarySliderWrap {
     display: block;

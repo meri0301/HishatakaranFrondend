@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import SectionHeader from '../../components/ui/SectionHeader';
+import SectionHeader from '../../components/ui/sectionHeader';
 import styles from './index.module.scss';
 
 const PlaceholderPage = memo(({ title }) => (

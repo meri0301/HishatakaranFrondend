@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { MapPin } from 'lucide-react';
 
-import Button from '../Button';
+import Button from '../linkingButton';
 import styles from './index.module.scss';
 
 const LibraryCard = memo(({ imageSrc, title, location }) => (
-    <article className={styles.card}>
+    <div className={styles.card}>
         <img src={imageSrc} alt={title} loading="lazy" />
-        <h3>{title}</h3>
+        <span>{title}</span>
         <p>
             <MapPin size={14} />
             {location}
@@ -15,7 +15,7 @@ const LibraryCard = memo(({ imageSrc, title, location }) => (
         <Button variant="primary" size="sm">
             View Archive
         </Button>
-    </article>
+    </div>
 ));
 
 LibraryCard.displayName = 'LibraryCard';

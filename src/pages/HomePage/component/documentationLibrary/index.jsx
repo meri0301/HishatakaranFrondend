@@ -1,7 +1,7 @@
 import {memo, useCallback, useEffect, useRef} from "react";
-import SectionHeader from "../../../../components/ui/SectionHeader/index.jsx";
+import SectionHeader from "../../../../components/ui/sectionHeader/index.jsx";
 import {ArrowLeft, ArrowRight} from "lucide-react";
-import LibraryCard from "../../../../components/ui/LibraryCard/index.jsx";
+import LibraryCard from "../../../../components/ui/libraryCard/index.jsx";
 import styles from "../../index.module.scss";
 
 import church1 from "../../../../assets/images/church1.png";

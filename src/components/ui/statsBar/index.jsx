@@ -3,7 +3,14 @@ import { memo, useEffect, useRef, useState, useCallback } from 'react';
 import styles from './index.module.scss';
 import StatItem from './statItem.jsx';
 
-const StatsBar = memo(({ items = [] }) => {
+const stats = [
+    {end: 5000, suffix: '+', label: 'Monuments Inventoried'},
+    {end: 100, suffix: '+', label: 'Documents'},
+    {end: 20, suffix: '+', label: 'Professional Expeditions'},
+    {text: 'ALIPH', label: 'Funded'},
+];
+
+const StatsBar = memo(({}) => {
     const [hasStarted, setHasStarted] = useState(false);
     const containerRef = useRef(null);
 
@@ -28,7 +35,7 @@ const StatsBar = memo(({ items = [] }) => {
 
     return (
         <div className={styles.statsBar} ref={containerRef}>
-            {items.map((item, i) => (
+            {stats.map((item, i) => (
                 <StatItem
                     key={item.label}
                     end={item.end}

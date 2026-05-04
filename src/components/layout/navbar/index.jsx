@@ -2,8 +2,8 @@ import { memo, useState } from 'react';
 import { Search } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import Button from '../../ui/Button';
-import LanguageDropdown from '../../ui/LanguageDropdown';
+import Button from '../../ui/linkingButton';
+import LanguageDropdown from './languageDropdown.jsx';
 import logo from '../../../assets/images/logo.svg';
 import { ROUTE_PATHS } from '../../../routes/routePaths';
 import styles from './index.module.scss';

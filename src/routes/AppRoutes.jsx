@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import PageLayout from '../components/layout/PageLayout';
+import PageLayout from '../components/layout/pageLayout';
 import HomePage from '../pages/HomePage';
-import PlaceholderPage from '../pages/PlaceholderPage';
+import PlaceholderPage from '../pages/placeholderPage';
 import { ROUTE_PATHS } from './routePaths';
 
 const AppRoutes = memo(() => (

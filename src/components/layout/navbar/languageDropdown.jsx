@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 import { Globe } from 'lucide-react';
 
-import Dropdown from '../Dropdown';
+import Dropdown from '../../ui/dropdown/index.jsx';
 
 const LANGUAGES = [
     { value: 'EN', label: 'EN — English' },
