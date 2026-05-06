@@ -10,7 +10,7 @@ const Button = memo(({
                          to,
                          href,
                          className,
-                         onCLick,
+                         onClick,
                          type = 'button',
                          fullWidth = false,
                          ...props

@@ -1,6 +1,6 @@
 import {Fragment, memo, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import './index.module.scss';
+import styles from './index.module.scss';
 
 const Button = ({
                     hoverText,
@@ -12,6 +12,9 @@ const Button = ({
                     iconClassNames,
                     title,
                     isLoading,
+                    variant,
+                    size,
+                    fullWidth,
                     iconPosition,
                     iconName
                 }) => {
@@ -20,22 +23,22 @@ const Button = ({
         !disabled && onClick?.(value, propKey);
     }, [disabled, onClick, value, propKey]);
 
+    const classes = [styles.button, styles[variant], styles[size], fullWidth ? styles.fullWidth : '', classNames]
+        .filter(Boolean)
+        .join(' ');
+
     return (
         <div
             title={hoverText}
             disabled={disabled}
+            className={classes}
             onClick={clickHandler}
-            className={`button ${classNames}`}
         >
-            {/*{*/}
-            {/*    isLoading ? <div className={"skeleton-item"}/>*/}
-            {/*        :*/}
             <Fragment>
                 {iconPosition !== 'right' && iconName && <i className={`${iconName} ${iconClassNames}`}/>}
-                <span>{title}</span>
+                <span className={styles.btnValue}>{title}</span>
                 {iconPosition === 'right' && iconName && <i className={`${iconName} ${iconClassNames}`}/>}
             </Fragment>
-            {/*}*/}
         </div>
     );
 }

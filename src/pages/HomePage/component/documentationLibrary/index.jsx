@@ -63,19 +63,19 @@ const libraryItems = [
 const DocumentationLibrary = () => {
 
     const libraryRowRef = useRef(null);
-    const intervalRef  = useRef(null);
-    const isPausedRef  = useRef(false);
+    const intervalRef = useRef(null);
+    const isPausedRef = useRef(false);
 
     /** Scroll one card in the given direction, looping at boundaries. */
     const scrollLibrary = useCallback((direction) => {
         const slider = libraryRowRef.current;
         if (!slider) return;
 
-        const firstCard  = slider.firstElementChild;
-        const cardWidth  = firstCard ? firstCard.getBoundingClientRect().width : 300;
+        const firstCard = slider.firstElementChild;
+        const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 300;
         const scrollStep = cardWidth + 20; // 20px matches the row gap
 
-        const atEnd   = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 2;
+        const atEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 2;
         const atStart = slider.scrollLeft <= 1;
 
         if (direction > 0 && atEnd) {
@@ -104,14 +104,19 @@ const DocumentationLibrary = () => {
     };
 
     /** Pause autoplay while the mouse is over the slider. */
-    const handleMouseEnter = () => { isPausedRef.current = true; };
-    const handleMouseLeave = () => { isPausedRef.current = false; };
+    const handleMouseEnter = () => {
+        isPausedRef.current = true;
+    };
+    const handleMouseLeave = () => {
+        isPausedRef.current = false;
+    };
 
     /** Boot autoplay on mount, clean up on unmount. */
     useEffect(() => {
         startAutoplay();
         return () => clearInterval(intervalRef.current);
     }, [startAutoplay]);
+
 
     return (
         <div className={styles.sectionWrap}>

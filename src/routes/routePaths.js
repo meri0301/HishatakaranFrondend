@@ -7,5 +7,9 @@ export const ROUTE_PATHS = {
   gallery: '/gallery',
   contact: '/contact',
   donate: '/donate',
+  monumentDetail: '/monuments/:slug',
 };
+
+export const buildMonumentDetailPath = (slug) => `/monuments/${slug}`;
+
 

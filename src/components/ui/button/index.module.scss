@@ -1,66 +1,24 @@
-
 .button {
-  text-transform: capitalize;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  user-select: none;
-  width: 100%;
-  gap: 0.4rem;
-  border: none;
-  outline: none;
-  font-family: inherit;
-  font-size: 1.4rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition-property: background-color, color, opacity;
-  transition-duration: 0.24s;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  min-width: 70px;
+  font: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
 
-
-  &[disabled] {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  > [class^="icon-"] {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    width: 2.4rem;
-    height: 2.4rem;
-    font-size: 1.2rem;
-    transition: color 0.24s ease;
-
-    [dir=ltr] & {
-      margin-right: 0.4rem;
-    }
-
-    [dir=rtl] & {
-      margin-left: 0.4rem;
-    }
-  }
-
-  &.small-icon {
-    min-width: unset;
-
-    > [class^="icon-"] {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-    }
-  }
-
-  &.big-fs {
-    font-size: 1.4rem;
-    font-weight: 600;
+  &:hover {
+    transform: translateY(-1px);
   }
 }
-
 
 .primary {
   background: var(--color-primary);
@@ -117,4 +75,8 @@
 
 .fullWidth {
   width: 100%;
+}
+
+.btnValue {
+  font-size: 15px;
 }

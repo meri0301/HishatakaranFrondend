@@ -1,0 +1,81 @@
+.page {
+  /* Fill the viewport between the 85px navbar and the footer */
+  min-height: calc(100vh - 85px);
+
+  /* Absorb the footer's 80px top margin so the cream background
+     runs flush into the footer. */
+  margin-bottom: -80px;
+  padding: clamp(32px, 6vw, 72px) 20px calc(clamp(40px, 8vw, 96px) + 80px);
+
+  background: var(--color-section-soft);
+  color: var(--color-text);
+
+  /* Smooth fade-in entrance */
+  animation: pageFadeIn 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.shell {
+  width: min(var(--container-width), 100%);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 44px);
+}
+
+/* ── Top bar (Back button + slug tag) ────────────────────────── */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.backButton {
+  gap: 6px;
+}
+
+.slugTag {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ── Body grid (main column + sidebar) ───────────────────────── */
+.bodyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.paragraph {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  max-width: 70ch;
+}
+
+@media (max-width: 880px) {
+  .bodyGrid {
+    grid-template-columns: 1fr;
+  }
+}

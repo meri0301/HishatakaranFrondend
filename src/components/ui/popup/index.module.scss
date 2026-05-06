@@ -62,7 +62,7 @@
 /* ── Header ───────────────────────────────────────────────────── */
 .popupHeader {
   width: 100%;
-  height: 5.6rem;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,7 +73,7 @@
 
 .popupHeaderTitle {
   max-width: 100%;
-  font-size: 1.4rem;
+  font-size: 19px;
   line-height: 2rem;
   font-weight: 700;
   color: var(--color-text, #1e1b18);
@@ -88,7 +88,7 @@
   display: flex;
   gap: 1rem;
   width: 100%;
-  height: 5.2rem;
+  height: 55px;
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
@@ -96,5 +96,5 @@
 }
 
 .footerButtonWrap {
-  min-width: 12rem;
+  //min-width: 12rem;
 }

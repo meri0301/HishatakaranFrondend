@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import PageLayout from '../components/layout/pageLayout';
 import HomePage from '../pages/HomePage';
+import MonumentDetail from '../pages/MonumentDetail';
 import PlaceholderPage from '../pages/placeholderPage';
 import { ROUTE_PATHS } from './routePaths';
 
@@ -20,6 +21,7 @@ const AppRoutes = memo(() => (
       <Route path={ROUTE_PATHS.gallery} element={<PlaceholderPage title="Gallery" />} />
       <Route path={ROUTE_PATHS.contact} element={<PlaceholderPage title="Contact Us" />} />
       <Route path={ROUTE_PATHS.donate} element={<PlaceholderPage title="Donate" />} />
+      <Route path={ROUTE_PATHS.monumentDetail} element={<MonumentDetail />} />
       <Route path="*" element={<Navigate to={ROUTE_PATHS.home} replace />} />
     </Route>
   </Routes>

@@ -5,45 +5,41 @@ import Button from "../button";
 import styles from "./index.module.scss";
 
 const Footer = memo(({
-                    onSave,
-                    onCancel,
-                    hideSaveButton = false,
-                    saveButtonText,
-                    cancelButtonText,
-                    saveButtonDisabled,
-                    footerComponent,
-                }) => (
-        <div className={styles.popupFooter}>
-            {footerComponent || (
-                <Fragment>
+                         onSave,
+                         onCancel,
+                         hideSaveButton = false,
+                         saveButtonText,
+                         cancelButtonText,
+                         saveButtonDisabled,
+                         footerComponent,
+                     }) => (
+    <div className={styles.popupFooter}>
+        {footerComponent || (
+            <Fragment>
+                <div className={styles.footerButtonWrap}>
+                    <Button
+                        size={"sm"}
+                        onClick={onCancel}
+                        variant={"outlineDark"}
+                        title={cancelButtonText || 'Cancel'}
+                    />
+                </div>
+
+                {!hideSaveButton && (
                     <div className={styles.footerButtonWrap}>
                         <Button
-                            variant="outlineDark"
-                            size="sm"
-                            fullWidth
-                            onClick={onCancel}
-                        >
-                            {cancelButtonText || 'Cancel'}
-                        </Button>
+                            size={"sm"}
+                            onClick={onSave}
+                            variant={"primary"}
+                            disabled={saveButtonDisabled}
+                            title={saveButtonText || 'Save'}
+                        />
                     </div>
-
-                    {!hideSaveButton && (
-                        <div className={styles.footerButtonWrap}>
-                            <Button
-                                variant="solid"
-                                size="sm"
-                                fullWidth
-                                disabled={saveButtonDisabled}
-                                onClick={onSave}
-                            >
-                                {saveButtonText || 'Save'}
-                            </Button>
-                        </div>
-                    )}
-                </Fragment>
-            )}
-        </div>
-    ));
+                )}
+            </Fragment>
+        )}
+    </div>
+));
 
 Footer.displayName = 'PopupFooter';
 

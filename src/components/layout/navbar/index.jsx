@@ -37,7 +37,7 @@ const Navbar = memo(() => {
     <header className={styles.navbar}>
       <div className={styles.container}>
         <NavLink to={ROUTE_PATHS.home} className={styles.logo}>
-          <img src={logo} alt="Hishatakaran logo" />
+          <img src={logo} alt="Hishatakaran logo"/>
         </NavLink>
 
         <nav className={styles.navLinks}>

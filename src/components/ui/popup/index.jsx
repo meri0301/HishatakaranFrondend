@@ -1,10 +1,11 @@
-import {memo, useRef} from "react";
+import {memo, useEffect, useRef} from "react";
 import PropTypes from "prop-types";
 
 import Header from "./header";
 import Footer from "./footer";
 import {KeyBoard} from "../../../core/enums/Keyboard.js";
 import useKeyPressedCallback from "../../../hooks/useKeyPressedCallback.js";
+import {startLenis, stopLenis} from "../../layout/smoothScroll/index.jsx";
 import styles from "./index.module.scss";
 
 const Content = memo(({
@@ -25,6 +26,16 @@ const Content = memo(({
                          ignoreKeyDownEvent = false,
                      }) => {
     const wrapperRef = useRef();
+
+    useEffect(() => {
+        const previous = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        stopLenis();
+        return () => {
+            document.body.style.overflow = previous;
+            startLenis();
+        };
+    }, []);
 
     useKeyPressedCallback({
         configs: [
