@@ -9,7 +9,7 @@ const POPUP_TITLE = 'Protected Heritage Image';
 const POPUP_MESSAGE =
     'This image is part of the Artsakh Tangible Heritage archive. To request high-resolution versions or permission for use, please contact the owners.';
 
-const ProtectedImage = memo(({src, alt, className}) => {
+const ProtectedImage = memo(({src, alt, className, allowZoom, onZoom}) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const openPopup = useCallback((e) => {
@@ -21,6 +21,13 @@ const ProtectedImage = memo(({src, alt, className}) => {
         setIsPopupOpen(false);
     }, []);
 
+    const handleClick = useCallback((e) => {
+        if (allowZoom && onZoom) {
+            e.preventDefault();
+            onZoom();
+        }
+    }, [allowZoom, onZoom]);
+
     return (
         <div className={`${styles.wrapper} ${className ?? ''}`}>
             {/* Transparent overlay — absorbs pointer interactions */}
@@ -29,6 +36,8 @@ const ProtectedImage = memo(({src, alt, className}) => {
                 onContextMenu={openPopup}
                 onDragStart={openPopup}
                 draggable={false}
+                onClick={handleClick}
+                style={allowZoom ? { cursor: 'zoom-in' } : undefined}
             />
 
             <img
@@ -38,6 +47,8 @@ const ProtectedImage = memo(({src, alt, className}) => {
                 onContextMenu={openPopup}
                 onDragStart={openPopup}
                 className={styles.image}
+                onClick={handleClick}
+                style={allowZoom ? { cursor: 'zoom-in' } : undefined}
             />
 
             {isPopupOpen && createPortal(
@@ -66,6 +77,8 @@ ProtectedImage.propTypes = {
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
     className: PropTypes.string,
+    allowZoom: PropTypes.bool,
+    onZoom: PropTypes.func,
 };
 
 export default ProtectedImage;

@@ -1,8 +1,10 @@
-import {memo, useCallback, useEffect, useRef} from "react";
+import {memo, useRef} from "react";
 import SectionHeader from "../../../../components/ui/sectionHeader/index.jsx";
 import {ArrowLeft, ArrowRight} from "lucide-react";
 import LibraryCard from "../../../../components/ui/libraryCard/index.jsx";
 import styles from "../../index.module.scss";
+
+import useSlider from '../../../../hooks/useSlider.js';
 
 import church1 from "../../../../assets/images/church1.png";
 import church2 from "../../../../assets/images/church2.png";
@@ -60,63 +62,21 @@ const libraryItems = [
     },
 ];
 
+
 const DocumentationLibrary = () => {
-
     const libraryRowRef = useRef(null);
-    const intervalRef = useRef(null);
-    const isPausedRef = useRef(false);
-
-    /** Scroll one card in the given direction, looping at boundaries. */
-    const scrollLibrary = useCallback((direction) => {
-        const slider = libraryRowRef.current;
-        if (!slider) return;
-
-        const firstCard = slider.firstElementChild;
-        const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 300;
-        const scrollStep = cardWidth + 20; // 20px matches the row gap
-
-        const atEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 2;
-        const atStart = slider.scrollLeft <= 1;
-
-        if (direction > 0 && atEnd) {
-            slider.scrollTo({left: 0, behavior: 'smooth'});
-        } else if (direction < 0 && atStart) {
-            slider.scrollTo({left: slider.scrollWidth, behavior: 'smooth'});
-        } else {
-            slider.scrollBy({left: direction * scrollStep, behavior: 'smooth'});
-        }
-    }, []);
-
-    /** Start (or restart) the autoplay interval. */
-    const startAutoplay = useCallback(() => {
-        clearInterval(intervalRef.current);
-        intervalRef.current = setInterval(() => {
-            if (!isPausedRef.current) {
-                scrollLibrary(1);
-            }
-        }, 2000);
-    }, [scrollLibrary]);
-
-    /** Manual arrow click: scroll immediately and reset the autoplay timer. */
-    const handleLibraryScroll = (direction) => {
-        scrollLibrary(direction);
-        startAutoplay(); // resets the 2-second countdown after a manual click
-    };
-
-    /** Pause autoplay while the mouse is over the slider. */
-    const handleMouseEnter = () => {
-        isPausedRef.current = true;
-    };
-    const handleMouseLeave = () => {
-        isPausedRef.current = false;
-    };
-
-    /** Boot autoplay on mount, clean up on unmount. */
-    useEffect(() => {
-        startAutoplay();
-        return () => clearInterval(intervalRef.current);
-    }, [startAutoplay]);
-
+    const {
+        next,
+        prev,
+        isAtStart,
+        isAtEnd,
+        handleMouseEnter,
+        handleMouseLeave
+    } = useSlider({
+        containerRef: libraryRowRef,
+        interval: 2000,
+        autoPlayEnabled: true
+    });
 
     return (
         <div className={styles.sectionWrap}>
@@ -126,7 +86,8 @@ const DocumentationLibrary = () => {
                     type="button"
                     className={`${styles.iconButton} ${styles.prevButton}`}
                     aria-label="Scroll library left"
-                    onClick={() => handleLibraryScroll(-1)}
+                    onClick={prev}
+                    disabled={isAtStart}
                 >
                     <ArrowLeft size={20}/>
                 </button>
@@ -145,13 +106,16 @@ const DocumentationLibrary = () => {
                     type="button"
                     className={`${styles.iconButton} ${styles.nextButton}`}
                     aria-label="Scroll library right"
-                    onClick={() => handleLibraryScroll(1)}
+                    onClick={next}
+                    disabled={isAtEnd}
                 >
                     <ArrowRight size={20}/>
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
+
+DocumentationLibrary.propTypes = {};
 
 export default memo(DocumentationLibrary);

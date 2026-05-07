@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import Button from '../../components/ui/linkingButton/index.jsx';
 import SectionHeader from '../../components/ui/sectionHeader/index.jsx';
-import {ROUTE_PATHS} from '../../routes/routePaths.js';
 
 import MonumentHero from './components/MonumentHero/index.jsx';
 import TechnicalSheet from './components/TechnicalSheet/index.jsx';
@@ -60,25 +59,11 @@ const mockMonument = {
 };
 
 const MonumentDetail = memo(() => {
-    const {slug} = useParams();
     const data = mockMonument;
 
     return (
         <div className={styles.page}>
             <div className={styles.shell}>
-
-                {/* Top bar */}
-                <div className={styles.topBar}>
-                    <Button
-                        to={ROUTE_PATHS.library}
-                        variant="outlineDark"
-                        size="sm"
-                        className={styles.backButton}
-                    >
-                        <ArrowLeft size={14}/> Back to Library
-                    </Button>
-                    <span className={styles.slugTag}>/{slug}</span>
-                </div>
 
                 {/* Hero + title */}
                 <MonumentHero
@@ -86,6 +71,10 @@ const MonumentDetail = memo(() => {
                     title={data.title}
                     subtitle={data.subtitle}
                     eyebrow="Monument archive"
+                    thumbnails={data.photos.slice(0, 2).map((p) => ({
+                        ...p,
+                        label: data.title,
+                    }))}
                 />
 
                 {/* Two-column body */}
@@ -104,7 +93,6 @@ const MonumentDetail = memo(() => {
                     <TechnicalSheet metadata={data.metadata}/>
                 </div>
 
-                {/* Full-width image galleries */}
                 <MediaGallery title="Additional Photos" images={data.photos}/>
                 <MediaGallery title="Dimensions & Plans" images={data.dimensionsImages}/>
                 <MediaGallery title="Pencil Drawings" images={data.drawings}/>

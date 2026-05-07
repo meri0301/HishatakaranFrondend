@@ -109,3 +109,23 @@ p, span {
   color: var(--color-selection-text);
 }
 
+/* Restore global scrollbar visibility and apply custom scrollbar styles to match brand */
+html, body {
+  overflow-y: auto !important;
+}
+
+ /*Custom global scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  background: #70201f;
+  border-radius: 10px;
+  border: 2px solid #f5f5f1;
+  min-height: 40px;
+  transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4d1514;
+}

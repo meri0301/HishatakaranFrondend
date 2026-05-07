@@ -119,16 +119,11 @@
   grid-auto-flow: column;
   grid-auto-columns: minmax(236px, 1fr);
   gap: 16px;
-  overflow-x: auto;
+  overflow: hidden;
   padding-bottom: 6px;
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
   -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 .libraryRow > * {
@@ -322,5 +317,3 @@
     -webkit-overflow-scrolling: touch;
   }
 }
-
-
