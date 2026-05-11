@@ -111,7 +111,7 @@ p, span {
 
 /* Restore global scrollbar visibility and apply custom scrollbar styles to match brand */
 html, body {
-  overflow-y: auto !important;
+  overflow: visible !important;
 }
 
  /*Custom global scrollbar styles */

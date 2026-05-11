@@ -87,6 +87,8 @@ const DocumentationLibrary = () => {
                     className={`${styles.iconButton} ${styles.prevButton}`}
                     aria-label="Scroll library left"
                     onClick={prev}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     disabled={isAtStart}
                 >
                     <ArrowLeft size={20}/>
@@ -107,6 +109,8 @@ const DocumentationLibrary = () => {
                     className={`${styles.iconButton} ${styles.nextButton}`}
                     aria-label="Scroll library right"
                     onClick={next}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     disabled={isAtEnd}
                 >
                     <ArrowRight size={20}/>

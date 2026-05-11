@@ -10,10 +10,10 @@ const MediaGallery = memo(({ title, images }) => {
     const trackRef = useRef();
     const { next, prev, isAtStart, isAtEnd } = useSlider({
         containerRef: trackRef,
-        interval: 4000,
         autoPlayEnabled: false,
     });
     const [lightboxIndex, setLightboxIndex] = useState(null);
+
     const openLightbox = useCallback(idx => setLightboxIndex(idx), []);
     const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
