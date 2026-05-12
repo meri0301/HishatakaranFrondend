@@ -13,7 +13,7 @@ const links = [
     {label: 'Locations', to: ROUTE_PATHS.locations},
     {label: 'Library', to: ROUTE_PATHS.library},
     {label: 'Gallery', to: ROUTE_PATHS.gallery},
-    {label: 'Partners', to: ROUTE_PATHS.contact},
+    {label: 'Contact Us', to: ROUTE_PATHS.contact},
     {label: 'Documentation and Registration', to: ROUTE_PATHS.culturalHeritages},
 ];
 
@@ -43,7 +43,11 @@ const Footer = memo(() => (
                             hishatakaran.artsakh@example.com
                         </p>
                         <div className={styles.subscribe}>
-                            <input type="email" placeholder="Email" aria-label="Email"/>
+                            <input
+                                required
+                                type="email"
+                                placeholder="Email"
+                                aria-label="Email"/>
                             <button type="button">Send</button>
                         </div>
 

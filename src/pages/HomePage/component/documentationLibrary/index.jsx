@@ -1,4 +1,4 @@
-import {memo, useRef} from "react";
+import {memo, useRef, useCallback} from "react";
 import SectionHeader from "../../../../components/ui/sectionHeader/index.jsx";
 import {ArrowLeft, ArrowRight} from "lucide-react";
 import LibraryCard from "../../../../components/ui/libraryCard/index.jsx";
@@ -78,6 +78,12 @@ const DocumentationLibrary = () => {
         autoPlayEnabled: true
     });
 
+    // Memoize handlers for buttons and mouse events
+    const handlePrev = useCallback(() => prev(), [prev]);
+    const handleNext = useCallback(() => next(), [next]);
+    const handleEnter = useCallback(() => handleMouseEnter(), [handleMouseEnter]);
+    const handleLeave = useCallback(() => handleMouseLeave(), [handleMouseLeave]);
+
     return (
         <div className={styles.sectionWrap}>
             <SectionHeader title="The Documentation Library"/>
@@ -86,17 +92,17 @@ const DocumentationLibrary = () => {
                     type="button"
                     className={`${styles.iconButton} ${styles.prevButton}`}
                     aria-label="Scroll library left"
-                    onClick={prev}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    onClick={handlePrev}
+                    onMouseEnter={handleEnter}
+                    onMouseLeave={handleLeave}
                     disabled={isAtStart}
                 >
                     <ArrowLeft size={20}/>
                 </button>
                 <div
                     className={styles.libraryViewport}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={handleEnter}
+                    onMouseLeave={handleLeave}
                 >
                     <div className={styles.libraryRow} ref={libraryRowRef}>
                         {libraryItems.map(({key, ...cardProps}) => (
@@ -108,9 +114,9 @@ const DocumentationLibrary = () => {
                     type="button"
                     className={`${styles.iconButton} ${styles.nextButton}`}
                     aria-label="Scroll library right"
-                    onClick={next}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    onClick={handleNext}
+                    onMouseEnter={handleEnter}
+                    onMouseLeave={handleLeave}
                     disabled={isAtEnd}
                 >
                     <ArrowRight size={20}/>

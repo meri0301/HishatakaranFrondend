@@ -1,4 +1,4 @@
-import {useRef, useEffect} from 'react';
+import {useRef, useEffect, useCallback} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {KeyBoard} from "../../../core/enums/Keyboard.js";
@@ -10,13 +10,23 @@ function Lightbox({open, onClose, children}) {
     const isActive = useRef(open);
     isActive.current = open;
 
+    const handleClose = useCallback(() => {
+        if (isActive.current) onClose();
+    }, [onClose]);
+
+    const handleOverlayClick = useCallback(() => {
+        onClose();
+    }, [onClose]);
+
+    const handleContentClick = useCallback((e) => {
+        e.stopPropagation();
+    }, []);
+
     useKeyPressedCallback({
         configs: [
             {
                 keyMap: [KeyBoard.esc],
-                callback: () => {
-                    if (isActive.current) onClose();
-                },
+                callback: handleClose,
             },
         ],
         deps: [open, onClose],
@@ -34,9 +44,9 @@ function Lightbox({open, onClose, children}) {
 
     if (!open) return null;
     return ReactDOM.createPortal(
-        <div className={styles.overlay} onClick={onClose}>
-            <div className={styles.content} onClick={e => e.stopPropagation()}>
-                <button className={styles.closeBtn} onClick={onClose} aria-label="Close">&times;</button>
+        <div className={styles.overlay} onClick={handleOverlayClick}>
+            <div className={styles.content} onClick={handleContentClick}>
+                <button className={styles.closeBtn} onClick={handleOverlayClick} aria-label="Close">&times;</button>
                 {children}
             </div>
         </div>,

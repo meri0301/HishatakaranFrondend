@@ -1,4 +1,4 @@
-import {memo, useEffect, useRef} from "react";
+import {memo, useEffect, useRef, useCallback} from "react";
 import PropTypes from "prop-types";
 
 import Header from "./header";
@@ -9,22 +9,22 @@ import {startLenis, stopLenis} from "../../layout/smoothScroll/index.jsx";
 import styles from "./index.module.scss";
 
 const Content = memo(({
-                         top,
-                         title,
-                         onSave,
-                         children,
-                         onCancel,
-                         disabled,
-                         hideHeader,
-                         hideFooter,
-                         hideSaveButton,
-                         saveButtonText,
-                         isWarningPopup,
-                         footerComponent,
-                         saveButtonColor,
-                         cancelButtonText,
-                         ignoreKeyDownEvent = false,
-                     }) => {
+                          top,
+                          title,
+                          onSave,
+                          children,
+                          onCancel,
+                          disabled,
+                          hideHeader,
+                          hideFooter,
+                          hideSaveButton,
+                          saveButtonText,
+                          isWarningPopup,
+                          footerComponent,
+                          saveButtonColor,
+                          cancelButtonText,
+                          ignoreKeyDownEvent = false,
+                      }) => {
     const wrapperRef = useRef();
 
     useEffect(() => {
@@ -37,19 +37,23 @@ const Content = memo(({
         };
     }, []);
 
+    const handleCancel = useCallback(() => {
+        onCancel?.();
+        return -1;
+    }, [onCancel]);
+
+    const handleSave = useCallback(() => {
+        onSave?.();
+        return -1;
+    }, [onSave]);
+
     useKeyPressedCallback({
         configs: [
             {
-                keyMap: [KeyBoard.esc], callback: () => {
-                    onCancel?.();
-                    return -1;
-                }
+                keyMap: [KeyBoard.esc], callback: handleCancel
             },
             {
-                keyMap: [KeyBoard.enter], callback: () => {
-                    onSave?.();
-                    return -1;
-                }
+                keyMap: [KeyBoard.enter], callback: handleSave
             },
         ],
         addingListenerPredicate: () => !ignoreKeyDownEvent,
@@ -69,8 +73,8 @@ const Content = memo(({
                 {
                     !hideFooter
                         ? <Footer
-                            onSave={onSave}
-                            onCancel={onCancel}
+                            onSave={handleSave}
+                            onCancel={handleCancel}
                             saveButtonDisabled={disabled}
                             saveButtonText={saveButtonText}
                             hideSaveButton={hideSaveButton}
