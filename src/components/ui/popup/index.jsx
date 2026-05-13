@@ -5,7 +5,7 @@ import Header from "./header";
 import Footer from "./footer";
 import {KeyBoard} from "../../../core/enums/Keyboard.js";
 import useKeyPressedCallback from "../../../hooks/useKeyPressedCallback.js";
-import {startLenis, stopLenis} from "../../layout/smoothScroll/index.jsx";
+// import {startLenis, stopLenis} from "../../layout/smoothScroll/index.jsx";
 import styles from "./index.module.scss";
 
 const Content = memo(({
@@ -27,15 +27,15 @@ const Content = memo(({
                       }) => {
     const wrapperRef = useRef();
 
-    useEffect(() => {
-        const previous = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        stopLenis();
-        return () => {
-            document.body.style.overflow = previous;
-            startLenis();
-        };
-    }, []);
+    // useEffect(() => {
+    //     const previous = document.body.style.overflow;
+    //     document.body.style.overflow = 'hidden';
+    //     stopLenis();
+    //     return () => {
+    //         document.body.style.overflow = previous;
+    //         startLenis();
+    //     };
+    // }, []);
 
     const handleCancel = useCallback(() => {
         onCancel?.();

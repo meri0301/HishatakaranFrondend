@@ -61,7 +61,7 @@ const Navbar = memo(() => {
                             onChange={(event) => setSearchValue(event.target.value)}
                         />
                     </form>
-                    <Button to={ROUTE_PATHS.donate} variant="outlineLight" size="sm" className={styles.donateButton}>
+                    <Button to={ROUTE_PATHS.donate} variant="lightSolid" size="sm">
                         Donate
                     </Button>
                     <LanguageDropdown/>
