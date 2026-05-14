@@ -2,6 +2,7 @@ import {useRef, useEffect, useCallback} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {KeyBoard} from "../../../core/enums/Keyboard.js";
+import { useLenis } from 'lenis/react';
 
 import useKeyPressedCallback from '../../../hooks/useKeyPressedCallback.js';
 import styles from './index.module.scss';
@@ -9,6 +10,7 @@ import styles from './index.module.scss';
 function Lightbox({open, onClose, children}) {
     const isActive = useRef(open);
     isActive.current = open;
+    const lenis = useLenis && useLenis();
 
     const handleClose = useCallback(() => {
         if (isActive.current) onClose();
@@ -34,13 +36,18 @@ function Lightbox({open, onClose, children}) {
     });
 
     useEffect(() => {
-        if (!open) return;
+        if (!open) {
+            if (lenis && typeof lenis.start === 'function') lenis.start();
+            return;
+        }
         const original = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
+        if (lenis && typeof lenis.stop === 'function') lenis.stop();
         return () => {
             document.body.style.overflow = original;
+            if (lenis && typeof lenis.start === 'function') lenis.start();
         };
-    }, [open]);
+    }, [open, lenis]);
 
     if (!open) return null;
     return ReactDOM.createPortal(
